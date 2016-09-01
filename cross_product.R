@@ -9,7 +9,7 @@ v1 <- as.scidb(matrix(rnorm(2500),50))
 # run the product in SciDB, and download the result
 mx = gemm(v1, v1)[]
 # The result is a dataframe, so we need to formulate a matrix from it
-mxmat = df_to_2dmat(mx, ordered = FALSE)
+mxmat = df_to_2dmat(mx)
 
 ##########
 # Now let us run the multiplication in R

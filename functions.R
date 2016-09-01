@@ -40,7 +40,7 @@ df_to_2dmat <- function(df, ordered = TRUE)
   if (ordered) {
     # Verify
     check = all.equal(rep(rnames, ncols), rowlist)
-    print(check)
+    # print(check)
     stopifnot(check)
   }
   
@@ -52,7 +52,7 @@ df_to_2dmat <- function(df, ordered = TRUE)
   if (ordered) {
     # Verify
     check = all.equal(xx, collist)
-    print(check)
+    # print(check)
     stopifnot(check)
   }
   
