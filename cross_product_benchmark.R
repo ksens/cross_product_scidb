@@ -16,11 +16,11 @@ for (i in 1:length(size))
   vR<-v[]
   vmat<-df_to_2dmat(vR)
   
-  cat("Running the matrix multiplication in R:  \n")
   tic<-proc.time();
   Rres<-head(vmat%*%vmat);
   tR <- proc.time()-tic
-  print(tR)
+  # cat("Running the matrix multiplication in R:  \n")
+  # print(tR)
   Rrestime[[i]]<-tR
   
   #Using Scidb
@@ -30,7 +30,7 @@ for (i in 1:length(size))
   tic<-proc.time();
   iquery(sprintf("consume(%s)", prod@name), return=FALSE);
   tS<-proc.time()-tic
-  # cat("Running the matrix multiplication in SciDB:  \n")
-  # print(tS)
+  cat("Running the matrix multiplication in SciDB:  \n")
+  print(tS)
   Scidbrestime_mm[[i]]<-tS
 }

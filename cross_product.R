@@ -21,3 +21,17 @@ m = vmat %*% vmat
 
 # Now compare the results
 all.equal(m, mxmat)
+
+######################################
+# now on 2 matrices
+v2 <- as.scidb(matrix(rnorm(2500),50))
+mx2 = gemm(v1, v2)[]
+mxmat2 = df_to_2dmat(mx2)
+
+# Convert from DF to matrix
+vmat1 = df_to_2dmat(v1[])
+vmat2 = df_to_2dmat(v2[])
+m2 = t(vmat1) %*% vmat2
+
+# Now compare the results
+all.equal(m2, mxmat2)
